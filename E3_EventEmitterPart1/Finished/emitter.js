@@ -3,6 +3,7 @@ function Emitter() {
 }
 
 Emitter.prototype.on = function(type, listener) {
+	// I don't know that what's ||[] ?
 	this.events[type] = this.events[type] || [];
 	this.events[type].push(listener);
 }
