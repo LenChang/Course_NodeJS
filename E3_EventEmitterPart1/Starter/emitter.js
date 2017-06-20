@@ -8,7 +8,7 @@ Emitter.prototype.on = function(type, listener){
     this.events[type].push(listener);
 }
 
-// I don't know what's going on ?
+// Focus on the method of [].foreach
 Emitter.prototype.emit = function(type){
     if (this.events[type]){
         this.events[type].forEach(function(listener) {
@@ -16,3 +16,5 @@ Emitter.prototype.emit = function(type){
         });
     }
 }
+
+module.exports = Emitter;
