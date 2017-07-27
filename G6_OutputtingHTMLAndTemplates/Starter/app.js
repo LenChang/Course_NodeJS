@@ -1,8 +1,12 @@
-var http = require('http');
+let http = require('http');
+let fs = require('fs');
 
 http.createServer(function(req, res) {
     
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello world\n');
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    let html = fs.readFileSync(__dirname + '/index.htm', 'utf8');
+    let message = 'Hello world...';
+    html = html.replace('{Message}', message);
+    res.end(html);
     
-}).listen(1337, '127.0.0.1');
+}).listen(5566, '127.0.0.1');
